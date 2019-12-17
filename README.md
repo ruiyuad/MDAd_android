@@ -1,9 +1,12 @@
 
 MDAdSDK用于Android端移动应用广告展示，在使用广告服务的同时，我们真诚希望收到大家的反馈。
+
 ## 环境支持
 		最低支持安卓AP14。
+	
+
 ## 集成方式
-手动集成：
+ 手动集成：
 1. 下载本SDK复制到项目AndroidStudio的libs目录下（如若没有则在app目录下新建一个libs目录）。
 2. 在项目的guild.gradle文件里添加依赖
 	![在这里插入图片描述](https://img-blog.csdnimg.cn/20191213105404979.png)
@@ -14,8 +17,7 @@ MDAdSDK用于Android端移动应用广告展示，在使用广告服务的同时
 - 安卓P适配
 	由于Android P 将禁止 App 使用所有未加密的连接，如果未对APP进行适配会可能会导致落地页加载失败。适配方法：
 	在manifest的application标签中加入 android:usesCleartextTraffic="true"。
-		
- 
+	
 ## 初始化
 
 
@@ -54,7 +56,7 @@ MDAdSDK用于Android端移动应用广告展示，在使用广告服务的同时
 4. 在onSuccess()方法中调用show()方法展示广告。
 ### 浮标广告
 浮标广告通常展示在页面的边角位置，是五种广告中展示面积最小的一种。你可以使用 MDBuoyView 类来实现浮标广告的展示。SDK 中提供浮标广告尺寸宽高比为 110 : 110. 在使用该广告之前, 你需要申请浮标广告的广告 ID. 集成浮标广告的示例如下:
-1. 实例化控件MDBuoyView
+1. 实例化控件MDBuoyView。
 2. 构建广告信息并请求广告。
 3. 在onSuccess()方法中调用show()方法展示广告。
 	![在这里插入图片描述](https://img-blog.csdnimg.cn/20191213112321387.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpZm9yZW50ODg4,size_16,color_FFFFFF,t_70)
@@ -84,6 +86,10 @@ A: 下面分别介绍两个错误码含义:
 对于接入过程中的错误码详情, 请查看错误码文档
 ## 版本日志
 0.1.0: 接入五种常用广告.
+
+
+
+
 
 
 
