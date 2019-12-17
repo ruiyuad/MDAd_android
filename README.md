@@ -7,6 +7,14 @@ MDAdSDK用于Android端移动应用广告展示，在使用广告服务的同时
 1. 下载本SDK复制到项目AndroidStudio的libs目录下（如若没有则在app目录下新建一个libs目录）。
 2. 在项目的guild.gradle文件里添加依赖
 	![在这里插入图片描述](https://img-blog.csdnimg.cn/20191213105404979.png)
+## 全局配置
+- 代码混淆配置：
+ 如果您需要使用 proguard 混淆代码，需确保不要混淆 SDK 的代码。 请在 proguard.cfg 文件(或其他混淆文件)尾部添加如下配置:
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20191217210631416.png)
+- 安卓P适配
+	由于Android P 将禁止 App 使用所有未加密的连接，如果未对APP进行适配会可能会导致落地页加载失败。适配方法：
+	在manifest的application标签中加入 android:usesCleartextTraffic="true"。
+		
  
 ## 初始化
 
@@ -14,9 +22,9 @@ MDAdSDK用于Android端移动应用广告展示，在使用广告服务的同时
 
 使用本SDK前请先确认已注册 AppKey 和 AppSecret. 如有疑问, 请联系我们 admin@mobiw.com 或者当前 github 账号。
 1. 如已注册 AppKey 和 AppSecret, 请在应用的application中做如下初始化：
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191213105852320.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20191217211101672.jpg)
 2. 为更好的享受我们的广告服务，需要在AndroidManifest.xml文件里配置以下权限和provider
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191213110303818.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20191217204753691.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpZm9yZW50ODg4,size_16,color_FFFFFF,t_70)
 3. 在manifest文件里配置provider,并在res目录下新建xml目录，然后建立file_paths文件。
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20191213110525633.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpZm9yZW50ODg4,size_16,color_FFFFFF,t_70)
 ## 广告样式
@@ -28,7 +36,7 @@ MDAdSDK用于Android端移动应用广告展示，在使用广告服务的同时
 1. 实例化控件MDSinglePicView
 2. 构建广告信息并请求广告。其中广告位必填，slotType不填默认表示请求非互动广告，其他广告同理。 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20191213110856806.png)
 3.  requestAd()方法会回调成功和失败两种方法。都是在子线程，其中onSuccess()中已经对线程进行切换，可以直接进行UI操作。onError()中需要开发者自行处理。
-4. onSuccess()方法中显示广告。![在这里插入图片描述](https://img-blog.csdnimg.cn/20191212141932880.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpZm9yZW50ODg4,size_16,color_FFFFFF,t_70)
+4. onSuccess()方法中显示广告。![在这里插入图片描述](https://img-blog.csdnimg.cn/20191217205101941.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpZm9yZW50ODg4,size_16,color_FFFFFF,t_70)
 
 
 
@@ -37,7 +45,7 @@ MDAdSDK用于Android端移动应用广告展示，在使用广告服务的同时
 1. 根据需求实例化控件MDLeftPicWithTextView或者MDBottomPicWthTextView。
 2. 构建广告信息并请求广告。
 3. 在onSuccess()方法中调用show()方法展示广告。同理，show()方法有两个重载，可以根据需要决定是否设置监听。
-4. 信息流广告提供了快速适配的方法。开发者可以在onAdShow()回调里调用setUpWithDefaultScale()方法选择默认比例快速接入。![在这里插入图片描述](https://img-blog.csdnimg.cn/20191212143555557.jpg)
+4. 信息流广告提供了快速适配的方法。开发者可以在onAdShow()回调里调用setUpWithDefaultScale()方法选择默认比例快速接入。![在这里插入图片描述](https://img-blog.csdnimg.cn/20191217205332698.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpZm9yZW50ODg4,size_16,color_FFFFFF,t_70)
 ### 开屏广告
 开屏广告又通常用于 App 启动或者从一个页面过渡到另一个页面的场景中。你可以使用 MDSplash 类来实现全屏广告的展示。SDK已对不同尺寸屏幕进行了适配。 在使用该广告之前, 你需要申请全屏广告的广告 ID. 集成全屏广告的简单示例如下:
 1. 实例化控件MDSinglePicView
@@ -52,7 +60,8 @@ MDAdSDK用于Android端移动应用广告展示，在使用广告服务的同时
 	![在这里插入图片描述](https://img-blog.csdnimg.cn/20191213112321387.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpZm9yZW50ODg4,size_16,color_FFFFFF,t_70)
 ### 插屏广告
 插屏广告用于展示插屏广告. 通常用于 App 屏幕中间展示. 你可以使用 MDInterstitialView 类来实现插屏广告的展示. SDK中提供插屏广告尺寸宽高比为 510 : 510. 在使用该广告之前, 你需要申请插屏广告的广告 ID. 集成插屏广告的简单示例如下:
-1. 实例化控件MDInterstitialView 
+1. 实例化控件MDInterstitialView 。MDInterstitialView 是一个DialogFragment,不要在XML中添加，而是在java代码中实例化。
+			mMDInterstitialView = new MDInterstitialView();
 2. 构建广告信息并请求广告。 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20191213112225762.png)
 3. 在onSuccess()方法中调用show()方法展示广告。
 ## 常见问题
