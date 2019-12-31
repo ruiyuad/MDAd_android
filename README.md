@@ -26,8 +26,6 @@ repositories {
  如果您需要使用 proguard 混淆代码，需确保不要混淆 SDK 的代码。 请在 proguard.cfg 文件(或其他混淆文件)尾部添加如下配置:
 
 ```
--keep @com.qihoo.SdkProtected.yqsdk.Keep class **{*;}
--keep,allowobfuscation @interface com.qihoo.SdkProtected.yqsdk.Keep
 -keep class com.zues.sdk.yq.** { *; }
 ```
 - 安卓P适配
