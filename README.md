@@ -57,6 +57,8 @@ repositories {
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <uses-permission android:name="android.permission.REORDER_TASKS"/>
+    
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
 ```
 3. 在manifest文件里配置provider,并在res目录下新建xml目录，然后建立file_paths文件。
 ```
