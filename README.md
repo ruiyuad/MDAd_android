@@ -64,7 +64,7 @@ repositories {
 ```
   <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.zues.ruiyu.fileprovider"
+            android:authorities="${applicationId}.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
