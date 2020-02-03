@@ -2,7 +2,7 @@
 MDAdSDK用于Android端移动应用广告展示，在使用广告服务的同时，我们真诚希望收到大家的反馈。
 
 ## 环境支持
-		最低支持安卓AP15。
+		最低支持安卓API 15。
 	
 
 ## 集成方式
@@ -26,7 +26,9 @@ repositories {
  如果您需要使用 proguard 混淆代码，需确保不要混淆 SDK 的代码。 请在 proguard.cfg 文件(或其他混淆文件)尾部添加如下配置:
 
 ```
--keep class com.zues.sdk.yq.** { *; }
+-keep @com.qihoo.SdkProtected.yqsdk.Keep class **{*;}
+-keep,allowobfuscation @interface com.qihoo.SdkProtected.yqsdk.Keep
+-keep class com.zues.sdk.** { *; }
 ```
 - 安卓P适配
 	由于Android P 将禁止 App 使用所有未加密的连接，如果未对APP进行适配会可能会导致落地页加载失败。适配方法：
