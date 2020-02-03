@@ -40,7 +40,9 @@ repositories {
 
 使用本SDK前请先确认已注册 AppKey 和 AppSecret. 如有疑问, 请联系我们 admin@mobiw.com 或者当前 github 账号。
 1. 如已注册 AppKey 和 AppSecret, 请在应用的application中做如下初始化：
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191217211101672.jpg)
+```
+	MDAdSdk.init(BuildConfig.APPKEY,BuildConfig.APPSECRET,this);
+```
 2. 为更好的享受我们的广告服务，需要在AndroidManifest.xml文件里配置以下权限和provider
 
 ```
