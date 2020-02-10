@@ -83,13 +83,12 @@ repositories {
 
 
 1. 实例化控件MDSinglePicView
-2. 构建广告信息并请求广告。其中广告位必填，slotType不填默认表示请求非互动广告，其他广告同理。
+2. 构建广告信息并请求广告。其中广告位必填，其他广告同理。
 ```
-private void requestAd(int slotType) {
+private void requestAd() {
         //广告位宽高比640:150,slotType为广告类型，传3请求非互动广告，传4请求互动广告
         AdSlot adSlot = new AdSlot.Builder()
                 .setCodeId("820005")
-                .setSlotType(slotType)
                 .build();
  new MDAdLoadHelper().requestAd(adSlot, new MDAdLoadHelper.AdRequestListener() {
 
@@ -204,7 +203,6 @@ private void requestAd(int slotType) {
  ```
 AdSlot adSlot = new AdSlot.Builder()
                 .setCodeId("840001")
-                .setSlotType(slotType)
                 .build();
         new MDAdLoadHelper().requestAd(adSlot, new MDAdLoadHelper.AdRequestListener() {
 ```
