@@ -221,22 +221,30 @@ AdSlot adSlot = new AdSlot.Builder()
 ## 常见问题
 
 Q: 加载广告为什么不显示?
+
 A: 请检查对应广告 ID 是否正确.
 
+
 Q: 为什么出现部分广告点击后没有发生跳转?
+
 A: rootViewController 未设置. rootViewController 用来弹出落地页或者执行广告跳转操作.
 
+
 Q: 广告样式是否可以自定义?
+
 A: 可以. 开发者只需传入需要自定义广告的 ID, 即可获取该广告的图片、标题和广告描述来实现广告UI的自定义。
 
+
 Q: 接入时出现了 40006, 50001 错误返回. 请问这是什么错误?
+
 A: 下面分别介绍两个错误码含义:
 
     40006 是当前广告位已经关闭. 该错误一般发生后台重复配置删除同一广告位, 进行广告展示前, 请确定对应的广告位是否开启.
     50001 表示当前广告位广告无法提供.
 
+
 ## 错误码
-对于接入过程中的错误码详情, 请查看[错误码文档](https://github.com/ruiyuad/MDAd_android/edit/master/README.md)
+对于接入过程中的错误码详情, 请查看[错误码文档](https://github.com/ruiyuad/MDAd_android/blob/master/%E9%94%99%E8%AF%AF%E7%A0%81.md)
 ## 版本日志
 0.1.1: 优化广告展示样式
 
