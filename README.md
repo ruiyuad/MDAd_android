@@ -152,7 +152,7 @@ private void requestAd() {
                         Toast.makeText(InfoFlowBottomPicActivity.this, "广告展示中", Toast.LENGTH_SHORT).show();
                     }
 ~~~
-5.setUpWithDefaultScale()方法介绍
+ 5.setUpWithDefaultScale()方法介绍（其他广告位同理）
 ~~~
 /**
      * 广告位快速适配
