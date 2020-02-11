@@ -67,7 +67,7 @@ repositories {
 3. 在manifest文件里配置provider,并在res目录下新建xml目录，然后建立file_paths文件。
 ```
   <provider
-            android:name="androidx.core.content.FileProvider"
+            android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
