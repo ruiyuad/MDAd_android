@@ -77,7 +77,7 @@ repositories {
         </provider>
 ```
 ## 广告样式
-目前支持5种广告样式，分别是**横幅广告**、**信息流广告**、**开屏广告**、**浮标广告**以及**插屏广告**。每种广告可以选择接入互动广告或者非互动广告，各种广告具体效果和用法如下：
+目前支持5种广告样式，分别是**横幅广告**、**信息流广告**、**开屏广告**、**浮标广告**以及**插屏广告**。各种广告具体效果和用法如下：
 ### 横幅广告
 横幅广告又称为 Banner. 通常展示在 App 页面的顶部或者底部. 广告位默认比例为640：150。在使用该广告之前, 你需要申请横幅广告的广告 ID 820005. 集成横幅广告的简单示例如下:
 
@@ -151,6 +151,17 @@ private void requestAd() {
                         mBottomPicWithTextView.setUpWithDefaultScale(true,0,12,12);
                         Toast.makeText(InfoFlowBottomPicActivity.this, "广告展示中", Toast.LENGTH_SHORT).show();
                     }
+~~~
+5.setUpWithDefaultScale()方法介绍
+~~~
+/**
+     * 广告位快速适配
+     *
+     * @param isSetUpWithDefaultScale true表示按照默认比例适配。false表示采用XML中定义的宽高。
+     * @param width                   自定义的广告位宽度，高度将会根据比例自适应，为0时表示全屏。
+     */
+    public void setUpWithDefaultScale(boolean isSetUpWithDefaultScale, int width, int paddingLeft, int paddingRight) {
+	
 ~~~
 ### 开屏广告
 开屏广告又通常用于 App 启动或者从一个页面过渡到另一个页面的场景中。你可以使用 MDSplash 类来实现全屏广告的展示。SDK已对不同尺寸屏幕进行了适配。 在使用该广告之前, 你需要申请全屏广告的广告 ID. 集成全屏广告的简单示例如下:
