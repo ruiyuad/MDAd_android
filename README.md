@@ -242,6 +242,10 @@ A: 下面分别介绍两个错误码含义:
     40006 是当前广告位已经关闭. 该错误一般发生后台重复配置删除同一广告位, 进行广告展示前, 请确定对应的广告位是否开启.
     50001 表示当前广告位广告无法提供.
 
+Q: 接入时出现couldn't find "libjagu_sdk_yqsdkProtected.so"等类似错误怎么回事？
+
+A：跟AndroidStudio编译器有关，尝试clean整个项目，然后gradle中删除对本aar的引用，再clean项目，再重新引用。
+
 
 ## 错误码
 对于接入过程中的错误码详情, 请查看[错误码文档](https://github.com/ruiyuad/MDAd_android/blob/master/%E9%94%99%E8%AF%AF%E7%A0%81.md)
