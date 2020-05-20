@@ -11,10 +11,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="529dc40c-1376-45ce-ab1c-06cae218014f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zues/ruiyu/BannerSinglePicActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zues/ruiyu/BannerSinglePicActivity.java" afterDir="false" />
-    </list>
+    <list default="true" id="529dc40c-1376-45ce-ab1c-06cae218014f" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +85,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zues/ruiyu/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="375">
-              <caret line="40" column="20" lean-forward="true" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
+              <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -197,7 +194,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-1965" />
     <option name="y" value="231" />
     <option name="width" value="1899" />
@@ -452,7 +449,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1965" y="231" width="1899" height="1021" extended-state="0" />
+    <frame x="-1965" y="231" width="1899" height="1021" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
@@ -473,7 +470,7 @@
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.32882884" />
       <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49908593" visible="true" weight="0.21533258" />
       <window_info anchor="bottom" id="Find" order="8" weight="0.32924962" />
-      <window_info anchor="bottom" id="Android Profiler" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Android Profiler" order="9" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" weight="0.37375" />
@@ -663,7 +660,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zues/ruiyu/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
-          <caret line="40" column="20" lean-forward="true" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
+          <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
         </state>
       </provider>
     </entry>
