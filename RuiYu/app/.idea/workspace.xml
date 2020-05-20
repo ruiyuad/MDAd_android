@@ -11,7 +11,10 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="529dc40c-1376-45ce-ab1c-06cae218014f" name="Default Changelist" comment="" />
+    <list default="true" id="529dc40c-1376-45ce-ab1c-06cae218014f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zues/ruiyu/BannerSinglePicActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zues/ruiyu/BannerSinglePicActivity.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,20 +87,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zues/ruiyu/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-678">
-              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zues/ruiyu/InfoFlowBottomPicActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="55" column="39" lean-forward="true" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="375">
+              <caret line="40" column="20" lean-forward="true" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -105,8 +96,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zues/ruiyu/BannerSinglePicActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="102" column="97" lean-forward="true" selection-start-line="102" selection-start-column="97" selection-end-line="102" selection-end-column="97" />
+            <state relative-caret-position="200">
+              <caret line="73" column="60" selection-start-line="73" selection-start-column="60" selection-end-line="73" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -206,10 +197,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-1815" />
-    <option name="y" value="130" />
-    <option name="width" value="1660" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="-1965" />
+    <option name="y" value="231" />
+    <option name="width" value="1899" />
     <option name="height" value="1021" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -220,7 +211,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -284,21 +277,10 @@
               <item name="zues" type="462c0819:PsiDirectoryNode" />
               <item name="ruiyu" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="RuiYu" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RuiYu" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="widget" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -319,15 +301,15 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.zues.sdk.yq" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\zhangshisan\work\gitres\MDAd_android_compny\RuiYu\app\libs" />
       <recent name="C:\zhangshisan\work\gee\mdsdkkkkkkkk\MDAdSDK_Android\RuiYu\app\libs" />
       <recent name="C:\zhangshisan\work\gitres\RYsdk\RuiYu\app\src\main\res\xml" />
       <recent name="C:\zhangshisan\work\gitres\RYsdk\RuiYu\app\src\main\res" />
       <recent name="C:\zhangshisan\work\gitres\RYsdk\RuiYu\ruiyusdk\src\main\java\com\example\ruiyusdk" />
-      <recent name="C:\zhangshisan\work\gitres\RYsdk\RuiYu\app\src\main\assets" />
-    </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.zues.sdk.yq" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -470,11 +452,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1815" y="130" width="1660" height="1021" extended-state="0" />
+    <frame x="-1965" y="231" width="1899" height="1021" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.294375" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.25611746" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -491,7 +473,7 @@
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.32882884" />
       <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49908593" visible="true" weight="0.21533258" />
       <window_info anchor="bottom" id="Find" order="8" weight="0.32924962" />
-      <window_info anchor="bottom" id="Android Profiler" order="9" />
+      <window_info anchor="bottom" id="Android Profiler" order="9" show_stripe_button="false" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" weight="0.37375" />
@@ -538,27 +520,11 @@
     <option name="LAST_COMMIT_MESSAGE" value="增加deeplink支持、替换UA" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../../../../sdk/platforms/android-29/data/res/values/colors.xml" />
-    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/values/attrs.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/res/values/attrs.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="13" column="36" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" column="58" selection-start-line="3" selection-start-column="58" selection-end-line="3" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/res/values/attrs.xml" />
+    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/res/values/styles.xml" />
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_banner_ad.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="550">
@@ -567,13 +533,7 @@
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/yq/MDLog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/yq/MDLog.java" />
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.12.1/66942a30c13605d8c415529cd889b67dc84d38ac/okhttp-3.12.1-sources.jar!/okhttp3/OkHttpClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
@@ -589,55 +549,16 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/libs/ruiyusdk-15-new.aar" />
-    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-      <provider editor-type-id="android-manifest" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/yq/MDBaseAdView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/AndroidManifest.xml" />
+    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/yq/MDBaseAdView.java" />
     <entry file="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/12ba353e0bed0080a1281bf04ea21688/jars/classes.jar!/com/zues/sdk/yq/MDAdSdk.class" />
-    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/res/drawable-xxhdpi/icon_cancel_gray.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/res/drawable-xxhdpi/icon_cancle.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/yq/MDAdSdk.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="10" column="25" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/res/drawable-xxhdpi/icon_logo.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/res/drawable-xxhdpi/icon_cancel_gray.png" />
+    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/res/drawable-xxhdpi/icon_cancle.png" />
+    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/yq/MDAdSdk.java" />
+    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/res/drawable-xxhdpi/icon_logo.png" />
     <entry file="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/12ba353e0bed0080a1281bf04ea21688/jars/classes.jar!/com/zues/sdk/yq/MDAdModel.class" />
-    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/yq/MDAdModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="34" column="30" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="30" />
-          <folding>
-            <element signature="e#773#774#0" expanded="true" />
-            <element signature="e#807#808#0" expanded="true" />
-            <element signature="e#861#862#0" expanded="true" />
-            <element signature="e#907#908#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/yq/MDDownLoadBtn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-575">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/yq/MDAdModel.java" />
+    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/yq/MDDownLoadBtn.java" />
     <entry file="file://$PROJECT_DIR$/../../../../../gitres/RYsdk/RuiYu/app/release/app-release.apk" />
     <entry file="file://$PROJECT_DIR$/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -647,27 +568,9 @@
       </provider>
       <provider editor-type-id="android-manifest" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/yq/IMDSdkHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/self/MDSdkManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="15" column="25" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/self/MDWebViewActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="266" column="41" selection-start-line="266" selection-start-column="41" selection-end-line="266" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/yq/IMDSdkHelper.java" />
+    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/self/MDSdkManager.java" />
+    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/self/MDWebViewActivity.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zues/ruiyu/BuoyAdActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -675,13 +578,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/self/MDAdLoadManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="8" column="54" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/self/MDAdLoadManager.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zues/ruiyu/InfoFlowLeftPicActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="237">
@@ -703,63 +600,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/self/MDReportHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="19" column="41" lean-forward="true" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/yq/MDBottomPicWthTextView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="71" column="85" selection-start-line="71" selection-start-column="85" selection-end-line="71" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/yq/MDSplashView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="59" column="85" selection-start-line="59" selection-start-column="85" selection-end-line="59" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/yq/MDSinglePicView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="74" column="81" selection-start-line="74" selection-start-column="81" selection-end-line="74" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/yq/MDLeftPicWithTextView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="81" column="81" selection-start-line="81" selection-start-column="81" selection-end-line="81" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/yq/MDBuoyView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/self/MDReportHelper.java" />
+    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/yq/MDBottomPicWthTextView.java" />
+    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/yq/MDSplashView.java" />
+    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/yq/MDSinglePicView.java" />
+    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/yq/MDLeftPicWithTextView.java" />
+    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/yq/MDBuoyView.java" />
     <entry file="file://$PROJECT_DIR$/../../../../../sdk/sources/android-26/android/os/Build.java" />
-    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/yq/MDInterstitialView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1475">
-          <caret line="85" column="85" selection-start-line="85" selection-start-column="85" selection-end-line="85" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/yq/IMDloadHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/yq/MDInterstitialView.java" />
+    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/yq/IMDloadHelper.java" />
     <entry file="file://$PROJECT_DIR$/../gradle.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -767,16 +616,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/yq/MDDeviceHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2825">
-          <caret line="153" selection-start-line="153" selection-end-line="153" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../build.gradle">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/yq/MDDeviceHelper.java" />
     <entry file="file://$PROJECT_DIR$/../settings.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -784,34 +624,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../ruiyusdk/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="44" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/self/MDOkhttpUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5125">
-          <caret line="255" column="24" selection-start-line="255" selection-start-column="24" selection-end-line="255" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/yq/MDAdLoadHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../ruiyusdk/build.gradle" />
+    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/self/MDOkhttpUtils.java" />
+    <entry file="file://$PROJECT_DIR$/../ruiyusdk/src/main/java/com/zues/sdk/yq/MDAdLoadHelper.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zues/ruiyu/MyApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -819,27 +634,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zues/ruiyu/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-678">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zues/ruiyu/InfoFlowBottomPicActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="55" column="39" lean-forward="true" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="39" />
+        <state relative-caret-position="875">
+          <caret line="55" column="39" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/libs/ruiyusdk-min_V2.aar">
+      <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="apk-viewer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-185" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="30" column="46" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zues/ruiyu/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="40" column="20" lean-forward="true" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b40416c09dd7c4f8ef013717c1ac047f/jars/classes.jar!/com/zues/sdk/yq/MDSinglePicView.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1950">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zues/ruiyu/BannerSinglePicActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="102" column="97" lean-forward="true" selection-start-line="102" selection-start-column="97" selection-end-line="102" selection-end-column="97" />
+        <state relative-caret-position="200">
+          <caret line="73" column="60" selection-start-line="73" selection-start-column="60" selection-end-line="73" selection-end-column="60" />
         </state>
       </provider>
     </entry>

@@ -40,6 +40,8 @@ public class BannerSinglePicActivity extends AppCompatActivity {
     private void initView() {
         mTitleView = findViewById(R.id.ry_title_view);
         mSinglePicView = findViewById(R.id.ry_single_pic_view);
+        //xml中添加或者java中动态添加view皆可
+        mSinglePicView = new MDSinglePicView(BannerSinglePicActivity.this,null);
         rlContainer = findViewById(R.id.rl_container);
         mTitleView.setBack(new View.OnClickListener() {
             @Override
@@ -69,46 +71,14 @@ public class BannerSinglePicActivity extends AppCompatActivity {
             public void onSuccess(MDAdModel adModel) {
 
                 //show方法有两个重载，可以根据需要决定是否设置监听，其他广告位同理。
-                // 这里的回调本质上也是在子线程，但是内部已经做了线程切换处理，可以直接进行UI操作。
+                //此回调是在子线程，不能直接addView。而show()方法中做了线程切换处理，可以直接调用addView()方法添加view
                 mSinglePicView.show(BannerSinglePicActivity.this, adModel, new MDAdLoadListener() {
                     @Override
-                    public void onAdClicked() {
-                        Toast.makeText(BannerSinglePicActivity.this, "广告被点击", Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
                     public void onAdShow() {
                         Toast.makeText(BannerSinglePicActivity.this, "广告展示中", Toast.LENGTH_SHORT).show();
-                        //广告位默认高比为640:150。该方法可以用于快速适配
+                        rlContainer.addView(mSinglePicView);
+                        //注意如果是在java代码中动态添加view,那么快速适配方法需要在addView()之后调用
                         mSinglePicView.setUpWithDefaultScale(true, 0,0,0);
-                    }
-
-                    @Override
-                    public void onRenderFailed() {
-                        Toast.makeText(BannerSinglePicActivity.this, "广告加载失败", Toast.LENGTH_SHORT).show();
-
-                    }
-
-                    @Override
-                    public void onAdClosed() {
-                        Toast.makeText(BannerSinglePicActivity.this, "广告被关闭", Toast.LENGTH_SHORT).show();
-
-                    }
-                });
-
-
-
-
-                //也可以在java中实例化，不过需要注意，此回调是在子线程，不能直接addView。而show()方法中做了线程切换处理，可以直接调用addView()方法添加view
-                MDSinglePicView singlePicView = new MDSinglePicView(BannerSinglePicActivity.this,null);
-                singlePicView.show(BannerSinglePicActivity.this, adModel, new MDAdLoadListener() {
-                    @Override
-                    public void onAdShow() {
-                        Toast.makeText(BannerSinglePicActivity.this, "广告展示中", Toast.LENGTH_SHORT).show();
-                        //广告位默认高比为640:150。该方法可以用于快速适配
-                        rlContainer.addView(singlePicView);
-                        //注意快速适配方法需要在addView()之后调用
-                        singlePicView.setUpWithDefaultScale(true, 0,0,0);
                     }
 
 
