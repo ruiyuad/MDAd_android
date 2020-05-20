@@ -2,14 +2,14 @@
 MDAdSDK用于Android端移动应用广告展示，在使用广告服务的同时，我们真诚希望收到大家的反馈。
 
 ## 环境支持
-		最低支持安卓API 15。
-	
+        最低支持安卓API 15。
+    
 
 ## 集成方式
  手动集成：
 1. 下载本SDK 压缩包内的 MDAdsdk.aar文件复制到项目AndroidStudio的libs目录下（如若没有则在app目录下新建一个libs目录）。
 2. 在项目的guild.gradle文件里添加依赖
-	
+    
 ```
 repositories {
     flatDir {
@@ -17,9 +17,9 @@ repositories {
     }
 }
  dependencies {
-	    implementation fileTree(dir: 'libs', include: ['*.jar'])
-   	 	implementation files( 'libs\\MDAdsdk.aar')
-	}
+        implementation fileTree(dir: 'libs', include: ['*.jar'])
+        implementation files( 'libs\\MDAdsdk.aar')
+    }
 ```
 ## 全局配置
 - 代码混淆配置：
@@ -31,9 +31,9 @@ repositories {
 -keep class com.zues.sdk.** { *; }
 ```
 - 安卓P适配
-	由于Android P 将禁止 App 使用所有未加密的连接，如果未对APP进行适配会可能会导致落地页加载失败。适配方法：
-	在manifest的application标签中加入 android:usesCleartextTraffic="true"。
-	
+    由于Android P 将禁止 App 使用所有未加密的连接，如果未对APP进行适配会可能会导致落地页加载失败。适配方法：
+    在manifest的application标签中加入 android:usesCleartextTraffic="true"。
+    
 ## 初始化
 
 
@@ -41,7 +41,7 @@ repositories {
 使用本SDK前请先确认已注册 AppKey 和 AppSecret. 如有疑问, 请联系我们 admin@mobiw.com 或者当前 github 账号。
 1. 如已注册 AppKey 和 AppSecret, 请在应用的application中做如下初始化：
 ```
-	MDAdSdk.init(BuildConfig.APPKEY,BuildConfig.APPSECRET,this);
+    MDAdSdk.init(BuildConfig.APPKEY,BuildConfig.APPSECRET,this);
 ```
 2. 为更好的享受我们的广告服务，需要在AndroidManifest.xml文件里配置以下权限和provider
 
@@ -65,6 +65,8 @@ repositories {
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
 ```
 3. 在manifest文件里配置provider,并在res目录下新建xml目录，然后建立file_paths文件。
+manifest文件里代码如下：
+
 ```
   <provider
             android:name="android.support.v4.content.FileProvider"
@@ -76,6 +78,17 @@ repositories {
                 android:resource="@xml/file_paths" />
         </provider>
 ```
+file_paths代码如下：
+```
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-path name="tt_external_root" path="." />
+    <external-path name="tt_external_download" path="Download" />
+    <external-files-path name="tt_external_files_download" path="Download" />
+    <files-path name="tt_internal_file_download" path="Download" />
+    <cache-path name="tt_internal_cache_download" path="Download" />
+</paths>
+```
 ## 广告样式
 目前支持5种广告样式，分别是**横幅广告**、**信息流广告**、**开屏广告**、**浮标广告**以及**插屏广告**。各种广告具体效果和用法如下：
 ### 横幅广告
@@ -83,6 +96,12 @@ repositories {
 
 
 1. 实例化控件MDSinglePicView
+~~~
+//可以通过xml添加view
+mSinglePicView = findViewById(R.id.ry_single_pic_view);
+//也可以java代码中动态添加view
+MDSinglePicView mSinglePicView = new MDSinglePicView(BannerSinglePicActivity.this);
+~~~
 2. 构建广告信息并请求广告。其中广告位必填，其他广告同理。
 ```
 private void requestAd() {
@@ -107,10 +126,11 @@ private void requestAd() {
 3.  requestAd()方法会回调成功和失败两种方法。都是在子线程，其中onSuccess()中已经对线程进行切换，可以直接进行UI操作。onError()中需要开发者自行处理。
 4. onSuccess()方法中显示广告。
 ```
- 			@Override
+             // onSuccess()和onError()方法都是回调在子线程，不能直接进行UI操作。
+            @Override
             public void onSuccess(MDAdModel adModel) {
-                //show方法有两个重载，可以根据需要决定是否设置监听，其他广告位同理。
-                // 这里的回调本质上也是在子线程，但是内部已经做了线程切换处理，可以直接进行UI操作。
+                //show()方法有两个重载，可以根据需要决定是否设置监听，其他广告位同理。
+               //show()方法内部已经切换到主线程了，可以直接进行UI操作。
                 mSinglePicView.show(BannerSinglePicActivity.this, adModel, new MDAdLoadListener() {
                     @Override
                     public void onAdClicked() {
@@ -137,48 +157,43 @@ private void requestAd() {
                     }
                 });
 ```
-
-
-### 信息流广告
-信息流广告用于展示在信息流列表中。sdk中提供横幅广告样式有两种, 分别是上文下图模式 (宽高比为690 : 440）和左图右文模式 (宽高比为210 : 140)。 在使用该广告之前, 你需要申请信息流广告的广告 ID. 集成信息流广告的示例如下:
-1. 根据需求实例化控件MDLeftPicWithTextView或者MDBottomPicWthTextView。
-2. 构建广告信息并请求广告。
-3. 在onSuccess()方法中调用show()方法展示广告。同理，show()方法有两个重载，可以根据需要决定是否设置监听。
-4. 信息流广告提供了快速适配的方法。开发者可以在onAdShow()回调里调用setUpWithDefaultScale()方法选择默认比例快速接入。
-~~~
-	   @Override
-                    public void onAdShow() {
-                        mBottomPicWithTextView.setUpWithDefaultScale(true,0,12,12);
-                        Toast.makeText(InfoFlowBottomPicActivity.this, "广告展示中", Toast.LENGTH_SHORT).show();
-                    }
-~~~
- 5.setUpWithDefaultScale()方法介绍（其他广告位同理）
+ 5.setUpWithDefaultScale()方法介绍
 ~~~
 /**
      * 广告位快速适配
      *
      * @param isSetUpWithDefaultScale true表示按照默认比例适配。false表示采用XML中定义的宽高。
-     * @param width                   自定义的广告位宽度，高度将会根据比例自适应，为0时表示全屏。
+     * @param width                   自定义的广告位宽度，高度将会根据比例自适应，宽度为0时表示全屏。
      */
     public void setUpWithDefaultScale(boolean isSetUpWithDefaultScale, int width, int paddingLeft, int paddingRight) {
-	
+    
 ~~~
+
+### 信息流广告
+信息流广告用于展示在信息流列表中。sdk中提供横幅广告样式有两种, 分别是上文下图模式 (宽高比为690 : 440）和左图右文模式 (宽高比为210 : 140)。 在使用该广告之前, 你需要申请信息流广告的广告 ID. 集成信息流广告与横幅广告类似，步骤如下:
+1. 根据需求实例化控件MDLeftPicWithTextView或者MDBottomPicWthTextView。（xml和java中添加皆可）
+2. 构建广告信息并请求广告。
+3. 在onSuccess()方法中调用show()方法展示广告。同理，show()方法有两个重载，可以根据需要决定是否设置监听。
+4. 信息流广告提供了快速适配的方法。开发者可以在onAdShow()回调里调用setUpWithDefaultScale()方法选择默认比例快速接入。
+
+
 ### 开屏广告
 开屏广告又通常用于 App 启动或者从一个页面过渡到另一个页面的场景中。你可以使用 MDSplash 类来实现全屏广告的展示。SDK已对不同尺寸屏幕进行了适配。 在使用该广告之前, 你需要申请全屏广告的广告 ID. 集成全屏广告的简单示例如下:
 1. 实例化控件MDSinglePicView
 2. 在onCreate()方法中延迟发送消息，确保即使开屏广告加载超时也能跳转到主页面。
 ~~~
-	myHandler.sendEmptyMessageDelayed(1, countTime);
+    myHandler.sendEmptyMessageDelayed(1, countTime);
 ~~~
 3. 构建广告信息并请求广告。
 4. 在onSuccess()方法中调用show()方法展示广告。
+
 ### 浮标广告
-浮标广告通常展示在页面的边角位置，是五种广告中展示面积最小的一种。你可以使用 MDBuoyView 类来实现浮标广告的展示。SDK 中提供浮标广告尺寸宽高比为 110 : 110. 在使用该广告之前, 你需要申请浮标广告的广告 ID. 集成浮标广告的示例如下:
-1. 实例化控件MDBuoyView。
+浮标广告通常展示在页面的边角位置，是五种广告中展示面积最小的一种。你可以使用 MDBuoyView 类来实现浮标广告的展示。SDK 中提供浮标广告尺寸宽高比为 110 : 110. 在使用该广告之前, 你需要申请浮标广告的广告 ID. 集成浮标广告与横幅广告类似，步骤如下:
+1. 实例化控件MDBuoyView。（xml和java中添加皆可）
 2. 构建广告信息并请求广告。
 3. 在onSuccess()方法中调用show()方法展示广告。
-	~~~
-		    mBuoyView.setCancelable(true);
+    ~~~
+            mBuoyView.setCancelable(true);
                 mBuoyView.show(BuoyAdActivity.this, MDAdModel, new MDAdLoadListener() {
                     @Override
                     public void onAdClicked() {
@@ -203,10 +218,11 @@ private void requestAd() {
                         Toast.makeText(BuoyAdActivity.this, "广告被关闭", Toast.LENGTH_SHORT).show();
                     }
                 });
-	~~~
+    ~~~
+
 ### 插屏广告
 插屏广告用于展示插屏广告. 通常用于 App 屏幕中间展示. 你可以使用 MDInterstitialView 类来实现插屏广告的展示. SDK中提供插屏广告尺寸宽高比为 510 : 510. 在使用该广告之前, 你需要申请插屏广告的广告 ID. 集成插屏广告的简单示例如下:
-1. 实例化控件MDInterstitialView 。MDInterstitialView 是一个DialogFragment,不要在XML中添加，而是在java代码中实例化。
+1. 实例化控件MDInterstitialView 。MDInterstitialView 是一个DialogFragment,不要在XML中添加，必须在java代码中实例化。
 ```
     mMDInterstitialView = new MDInterstitialView();
 ```
@@ -254,7 +270,7 @@ A：跟AndroidStudio编译器有关，尝试clean整个项目，然后gradle中�
 
 0.1.1: 优化广告展示样式。
 
-
+0.1.2：自定义view构造方法优化
 
 
 
