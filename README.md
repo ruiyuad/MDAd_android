@@ -65,6 +65,8 @@ repositories {
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
 ```
 3. 在manifest文件里配置provider,并在res目录下新建xml目录，然后建立file_paths文件。
+manifest文件里代码如下：
+
 ```
   <provider
             android:name="android.support.v4.content.FileProvider"
@@ -76,13 +78,31 @@ repositories {
                 android:resource="@xml/file_paths" />
         </provider>
 ```
+file_paths代码如下：
+```
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-path name="tt_external_root" path="." />
+    <external-path name="tt_external_download" path="Download" />
+    <external-files-path name="tt_external_files_download" path="Download" />
+    <files-path name="tt_internal_file_download" path="Download" />
+    <cache-path name="tt_internal_cache_download" path="Download" />
+</paths>
+```
+
 ## 广告样式
 目前支持5种广告样式，分别是**横幅广告**、**信息流广告**、**开屏广告**、**浮标广告**以及**插屏广告**。各种广告具体效果和用法如下：
 ### 横幅广告
 横幅广告又称为 Banner. 通常展示在 App 页面的顶部或者底部. 广告位默认比例为640：150。在使用该广告之前, 你需要申请横幅广告的广告 ID 820005. 集成横幅广告的简单示例如下:
 
 
-1. 实例化控件MDSinglePicView
+1. 实例化控件MDSinglePicView。（可以在XML中添加view,也可以在java代码中动态添加view）
+~~~
+//可以通过xml添加view
+mSinglePicView = findViewById(R.id.ry_single_pic_view);
+//也可以java代码中动态添加view
+MDSinglePicView mSinglePicView = new MDSinglePicView(BannerSinglePicActivity.this);
+~~~
 2. 构建广告信息并请求广告。其中广告位必填，其他广告同理。
 ```
 private void requestAd() {
@@ -104,39 +124,38 @@ private void requestAd() {
             }
         });
   ```
-3.  requestAd()方法会回调成功和失败两种方法。都是在子线程，其中onSuccess()中已经对线程进行切换，可以直接进行UI操作。onError()中需要开发者自行处理。
+3.  requestAd()方法会回调成功和失败两种方法。都是在子线程，其中onSuccess()的show()方法中已经切换到主线程，可以直接进行UI操作。onError()中需要开发者自行处理。
 4. onSuccess()方法中显示广告。
 ```
- 			@Override
+		@Override
             public void onSuccess(MDAdModel adModel) {
                 //show方法有两个重载，可以根据需要决定是否设置监听，其他广告位同理。
-                // 这里的回调本质上也是在子线程，但是内部已经做了线程切换处理，可以直接进行UI操作。
-                mSinglePicView.show(BannerSinglePicActivity.this, adModel, new MDAdLoadListener() {
-                    @Override
-                    public void onAdClicked() {
-                        Toast.makeText(BannerSinglePicActivity.this, "广告被点击", Toast.LENGTH_SHORT).show();
-                    }
+                // 这里的回调本质上也是在子线程，而show（）方法内部已经做了线程切换处理，可以直接进行UI操作。
+       
 
+                singlePicView.show(BannerSinglePicActivity.this, adModel, new MDAdLoadListener() {
                     @Override
                     public void onAdShow() {
                         Toast.makeText(BannerSinglePicActivity.this, "广告展示中", Toast.LENGTH_SHORT).show();
-                        //广告位默认高比为640:150。该方法可以用于快速适配
-                        mSinglePicView.setUpWithDefaultScale(true, 0,0,0);
+			//注意如果是java中实例化view需要通过addView()方法添加，并且该方法只能在主线程使用，show()方法已经做了切换处理了。
+                        rlContainer.addView(singlePicView);
+			//注意快速适配方法需要在addView()之后调用。
+                        singlePicView.setUpWithDefaultScale(true, 0,12,12);
                     }
-
-                    @Override
-                    public void onRenderFailed() {
-                        Toast.makeText(BannerSinglePicActivity.this, "广告加载失败", Toast.LENGTH_SHORT).show();
-
-                    }
-
-                    @Override
-                    public void onAdClosed() {
-                        Toast.makeText(BannerSinglePicActivity.this, "广告被关闭", Toast.LENGTH_SHORT).show();
-
-                    }
-                });
+                    }	
+		
 ```
+ 5.setUpWithDefaultScale()方法介绍（其他广告位同理）
+~~~
+/**
+     * 广告位快速适配
+     *
+     * @param isSetUpWithDefaultScale true表示按照默认比例适配。false表示采用XML中定义的宽高。
+     * @param width                   自定义的广告位宽度，高度将会根据比例自适应，为0时表示全屏。
+     */
+    public void setUpWithDefaultScale(boolean isSetUpWithDefaultScale, int width, int paddingLeft, int paddingRight) {
+	
+~~~
 
 
 ### 信息流广告
@@ -253,6 +272,8 @@ A：跟AndroidStudio编译器有关，尝试clean整个项目，然后gradle中�
 0.1.0: 接入五种常用广告。 
 
 0.1.1: 优化广告展示样式。
+
+0.1.2：自定义view构造方法优化
 
 
 
