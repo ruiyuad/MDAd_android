@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <style type="text/css">
+        body {
+            font-size: 40px;
+            background: #ffcc39;
+        }
+
+        .btn {
+            line-height: 40px;
+            margin-left: 20px;
+            margin-top: 20px;
+            background: beige;
+        }
+
+    </style>
+</head>
+<body>
+<h1>demo</h1>
+<p> 安卓和JS互相调用方法测试</p>
+<p id="result"> </p>
+
+<div>
+    <span>请输入要传递的值：</span><label for="input"></label><input type="text" id="input" style="height:50px;width:500px;font-size: 40px">
+</div>
+<div id="btn" style="margin-top: 30px"><span class="btn">点我传值到安卓</span></div>
+<script type="text/javascript">
+    var btnEle = document.getElementById("btn");
+    var inputEle = document.getElementById("input");
+    btnEle.addEventListener("click", function () {
+        var result = inputEle.value;
+        //alert(result);
+        if (window.RYLauncher) {
+            RYLauncher.setValue(result);
+        } else {
+            alert("RYLauncher not fount");
+        }
+    });
+
+    function test(msg) {
+        document.getElementById("result").innerHTML += msg;
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <title>文件下载</title>
+</head>
+<body>
+    <!--头部-->
+    <header id="hui-header" class="hui-header">
+        <div id="hui-back"></div>
+        <h1>文件下载 </h1>
+        <div class="hui_iconm"><span class="iconfont"></span></div>
+    </header>
+ 
+    <div class="hui-wrap">
+        <div style="padding:20px;">
+            <div style="line-height:38px;">下载状态</div>
+            <div class="progress">0%</div>
+        </div>
+        <div style="padding:20px;">
+            <button id="download" οnclick="download('Snip_V2.0_5771.dmg', 'http://snip.qq.com/resources/Snip_V2.0_5771.dmg');" class="mui-btn-blue mui-pull-right">开始下载</button>
+        </div>
+    </div>
+<script>
+function download(filename, filepath) {
+    if (window.plus) {//支持plus
+ 
+        //判断文件是否已经下载
+        plus.io.resolveLocalFileSystemURL(
+            '_downloads/' + filename,
+            function (entry) {//如果已存在文件，则打开文件
+                if (entry.isFile) {
+                    hui.toast("正在打开文件...");
+                    plus.runtime.openFile('_downloads/' + filename);
+                }
+            }, function () {//如果未下载文件，则下载后打开文件
+                var dtask = plus.downloader.createDownload(filepath, { filename: '_downloads/' + filename }, function (d, status) {
+                    if (status == 200) {
+                        plus.runtime.openFile('_downloads/' + filename);
+                    }
+                    else {
+                        hui.toast("下载失败: " + status);
+                    }
+                });
+                dtask.addEventListener("statechanged", function (task, status) {
+                    if (!dtask) { return; }
+                    switch (task.state) {
+                        case 1:
+                            hui.toast("开始下载...");
+                            break;
+                        case 2:
+                            hui.toast("正在下载...");
+                            break;
+                        case 3: // 已接收到数据
+                            var progressVal = (task.downloadedSize / task.totalSize) * 100;
+                            //psb1.progressbar({ progress: progressVal }).show();
+                            //dstatus[0].innerHTML = task.downloadedSize + '/' + task.totalSize;
+                            //hui.toast('下载进度：' + (task.downloadedSize + '/' + task.totalSize));
+                            if (hui('.progress').length > 0) {
+                                hui('.progress').html(parseInt(progressVal) + '%');
+                            }
+                            break;
+                        case 4:
+                            dtask = null;
+                            if (hui('.progress').length > 0) {
+                                hui('.progress').html('0%');
+                            }
+                            hui.toast("正在打开文件...");
+                            break;
+                    }
+                });
+                dtask.start();
+            }
+        );
+ 
+    } else {//不支持plus
+        window.open(filepath);
+    }
+}
+<script/>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <widget.RYTitleView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/ry_title_view"
+        app:rytv_title_text="左图右文banner展示"/>
+    <TextView
+        android:background="#eeeeee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="互动"
+        android:padding="12dp"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:id="@+id/tv_interaction"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ffffff"/>
+    <TextView
+        android:background="#eeeeee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="非互动"
+        android:padding="12dp"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:id="@+id/tv_normal"/>
+    <com.zues.sdk.yq.MDLeftPicWithTextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/ry_pic_with_text_view"
+        android:layout_margin="20dp"/>
+
+</LinearLayout>
