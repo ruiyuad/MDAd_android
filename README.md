@@ -171,6 +171,16 @@ private void requestAd() {
     public void setUpWithDefaultScale(boolean isSetUpWithDefaultScale, int width, int paddingLeft, int paddingRight) {
     
 ~~~
+6.开发者也可以根据需要自行适配广告位尺寸。（建议用setUpWithDefaultScale()方法适配）
+~~~
+       int w = (int) MDDeviceHelper.getScreenWidth(); //广告位宽度
+       int h = (int) (w * 440.0 / 690.0);             //根据文档中给出的比例计算广告位高度
+       ViewGroup.LayoutParams params = frameLayout.getLayoutParams();
+       params.width = w;
+       params.height = h;
+       frameLayout.setPadding(12, 0, 12, 0);
+       frameLayout.setLayoutParams(params);
+~~~
 
 ### 信息流广告
 信息流广告用于展示在信息流列表中。sdk中提供横幅广告样式有两种, 分别是上文下图模式 (宽高比为690 : 440）和左图右文模式 (宽高比为210 : 140)。 在使用该广告之前, 你需要申请信息流广告的广告 ID. 集成信息流广告与横幅广告类似，步骤如下:
