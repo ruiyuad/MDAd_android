@@ -160,11 +160,13 @@ private void requestAd() {
  5.setUpWithDefaultScale()方法介绍
 ~~~
 /**
-     * 广告位快速适配
+     * 广告位快速适配 
+     * 注意此方法目前只支持父布局为LinearLayout、RelativeLayout和FrameLayout
      *
      * @param isSetUpWithDefaultScale true表示按照默认比例适配。false表示采用XML中定义的宽高。
-     * @param width                   自定义的广告位宽度，高度将会根据比例自适应，宽度为0时表示全屏。
-     *                                注意此方法目前只支持父布局为LinearLayout、RelativeLayout和FrameLayout
+     * @param width                   自定义的广告位宽度，单位px,高度将会根据比例自适应，宽度为0时表示全屏。
+     * @param paddingLeft             单位dp,下同
+     * @param paddingRight 
      */
     public void setUpWithDefaultScale(boolean isSetUpWithDefaultScale, int width, int paddingLeft, int paddingRight) {
     
