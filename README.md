@@ -175,10 +175,11 @@ private void requestAd() {
 ~~~
        int w = (int) MDDeviceHelper.getScreenWidth(); //广告位宽度
        int h = (int) (w * 440.0 / 690.0);             //根据文档中给出的比例计算广告位高度
+       int mPadding = (int) MDDeviceHelper.dp2px(mContext,12);
        ViewGroup.LayoutParams params = frameLayout.getLayoutParams();
        params.width = w;
        params.height = h;
-       frameLayout.setPadding(12, 0, 12, 0);
+       frameLayout.setPadding(mPadding, 0, mPadding, 0);
        frameLayout.setLayoutParams(params);
 ~~~
 
