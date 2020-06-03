@@ -102,6 +102,7 @@ file_paths代码如下：
 开发者接入时需要申请相应广告ID，这三种banner广告详细集成过程请参考DEMO中的BannerActivity。 
 
 banner单图10.67和banner单图4.26集成过程类似，本SDK提供了相应的控件（MDBannerP10_67View和MDBannerP4_26View），下边以banner单图10.67为例简单介绍集成步骤： 
+
 1.实例化控件
 ~~~
 //注意此处的Context必须传Activity，不能传其他的。
