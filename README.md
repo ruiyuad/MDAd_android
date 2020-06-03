@@ -95,15 +95,13 @@ file_paths代码如下：
 ### 横幅广告
 横幅广告又称为 Banner，通常展示在App页面的顶部或者底部。目前支持的Banner广告有三种，分别是  
 
-    1.banner单图10.67（广告ID820001，广告位宽高比640：60） 
+1.banner单图10.67（广告ID 820001，广告位宽高比640：60） 
+2.banner左图右文1.56（广告ID 820004，广告位宽高比690：100） 
+3.banner单图4.26（广告位ID 820005，广告位宽高比640：150） 
 
-    2.banner左图右文1.56（广告ID820004，广告位宽高比690：100） 
+开发者接入时需要申请相应广告ID，这三种banner广告详细集成过程请参考DEMO中的BannerActivity。 
 
-    3.banner单图4.26（广告位ID820005，广告位宽高比640：150） 
-    
-
-开发者接入时需要申请相应广告ID，这三种banner广告详细集成过程请参考DEMO中的AannerActivity。
-banner单图10.67和banner单图4.26集成过程类似，本SDK提供了相应的控件（MDBannerP10_67View和MDBannerP4_26View），下边以banner单图10.67为例简单介绍步集成步骤：
+banner单图10.67和banner单图4.26集成过程类似，本SDK提供了相应的控件（MDBannerP10_67View和MDBannerP4_26View），下边以banner单图10.67为例简单介绍集成步骤： 
 1.实例化控件
 ~~~
 //注意此处的Context必须传Activity，不能传其他的。
@@ -114,7 +112,7 @@ mdBannerP10_67View = new MDBannerP10_67View(BannerActivity.this);
         AdSlot adSlot = new AdSlot.Builder()
                 .setCodeId("820005")
                 .build();
-  ```
+```
 3. 使用MDAdLoadHelper.getInstance().requestAd()方法请求广告。该方法会回调成功和失败两种状态，都是回调在子线程，如果需要UI操作请务必先切换线程。其他各个广告位同理。
 ~~~
  MDAdLoadHelper.getInstance().requestAd(adSlot, new MDAdLoadHelper.AdRequestListener() {
