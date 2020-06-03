@@ -93,15 +93,17 @@ file_paths代码如下：
 目前支持5种广告样式，分别是**横幅广告**、**信息流广告**、**开屏广告**、**浮标广告**以及**插屏广告**。各种广告具体效果和用法如下：
 
 ### 横幅广告
-横幅广告又称为 Banner，通常展示在App页面的顶部或者底部。目前支持的Banner广告有三种，分别是
+横幅广告又称为 Banner，通常展示在App页面的顶部或者底部。目前支持的Banner广告有三种，分别是  
+
     1.banner单图10.67（广告ID820001，广告位宽高比640：60），
     2.banner左图右文1.56（广告ID820004，广告位宽高比690：100），
     3.banner单图4.26（广告位ID820005，广告位宽高比640：150），
+
 开发者接入时需要申请相应广告ID，这三种banner广告详细集成过程请参考DEMO中的AannerActivity。
 banner单图10.67和banner单图4.26集成过程类似，本SDK提供了相应的控件（MDBannerP10_67View和MDBannerP4_26View），下边以banner单图10.67为例简单介绍步集成步骤：
 1.实例化控件
 ~~~
-//注意此处Context必须传Activity，不能传其他的。
+//注意此处的Context必须传Activity，不能传其他的。
 mdBannerP10_67View = new MDBannerP10_67View(BannerActivity.this);
 ~~~
 2.构建广告信息,传入广告ID。
@@ -386,7 +388,7 @@ UI适配示范如下：
                     }
                 });
     ~~~
-    
+
 ### 插屏广告
 插屏广告用于展示插屏广告. 通常用于 App 屏幕中间展示. 你可以使用 MDInterstitialView 类来实现插屏广告的展示. SDK中提供插屏广告尺寸宽高比为 510 : 510. 在使用该广告之前, 你需要申请插屏广告的广告 ID. 集成插屏广告的简单示例如下:
 1. 实例化控件MDInterstitialView 。MDInterstitialView 是一个DialogFragment,不要在XML中添加，必须在java代码中实例化。
