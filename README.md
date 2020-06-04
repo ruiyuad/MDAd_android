@@ -93,31 +93,28 @@ file_paths代码如下：
 目前支持5种广告样式，分别是**横幅广告**、**信息流广告**、**开屏广告**、**浮标广告**以及**插屏广告**。各种广告具体效果和用法如下：
 
 ### 横幅广告
-横幅广告又称为 Banner，通常展示在App页面的顶部或者底部。目前支持的Banner广告有三种，分别是  
-
-1.banner单图10.67（广告ID 820001，广告位宽高比640：60） 
-2.banner左图右文1.56（广告ID 820004，广告位宽高比690：100） 
-3.banner单图4.26（广告位ID 820005，广告位宽高比640：150） 
-
+横幅广告又称为Banner，通常展示在App页面的顶部或者底部。目前支持的Banner广告有三种，分别是  
+1.banner单图10.67（广告ID 820001，广告位宽高比640：60）  
+2.banner左图右文1.56（广告ID 820004，广告位宽高比690：100）   
+3.banner单图4.26（广告位ID 820005，广告位宽高比640：150）   
 开发者接入时需要申请相应广告ID，这三种banner广告详细集成过程请参考DEMO中的BannerActivity。 
 
-banner单图10.67和banner单图4.26集成过程类似，本SDK提供了相应的控件（MDBannerP10_67View和MDBannerP4_26View），下边以banner单图10.67为例简单介绍集成步骤： 
+banner单图10.67和banner单图4.26集成过程类似，本SDK提供了相应的控件（MDBannerP10_67View和MDBannerP4_26View）来帮助广告展示。下边以banner单图10.67为例简单介绍集成步骤： 
 
-1.实例化控件
+1. 实例化控件
 ~~~
 //注意此处的Context必须传Activity，不能传其他的。
 mdBannerP10_67View = new MDBannerP10_67View(BannerActivity.this);
 ~~~
-2.构建广告信息,传入广告ID。
-```
+2. 构建广告信息,传入广告ID。
+~~~
         AdSlot adSlot = new AdSlot.Builder()
                 .setCodeId("820005")
                 .build();
-```
+~~~
 3. 使用MDAdLoadHelper.getInstance().requestAd()方法请求广告。该方法会回调成功和失败两种状态，都是回调在子线程，如果需要UI操作请务必先切换线程。其他各个广告位同理。
 ~~~
- MDAdLoadHelper.getInstance().requestAd(adSlot, new MDAdLoadHelper.AdRequestListener() {
-
+MDAdLoadHelper.getInstance().requestAd(adSlot, new MDAdLoadHelper.AdRequestListener() {
             @Override
             public void onError(int i, String s) {
                 //注意回调是在子线程，不能直接toast
@@ -134,36 +131,38 @@ mdBannerP10_67View = new MDBannerP10_67View(BannerActivity.this);
 ~~~
 4. 在onSuccess()方法中调用show()方法显示广告并在onAdShow()回调中进行广告位UI适配。
 ```
-            @Override
-            public void onSuccess(MDAdModel adModel) {
-               // 这里的回调本质上也是在子线程，但是内部已经做了线程切换处理，可以直接进行UI操作。
-                        mdBannerP10_67View.show(adModel, new MDAdLoadListener() {
-                            @Override
-                            public void onAdClicked() {
+    @Override
+    public void onSuccess(MDAdModel adModel) {
+       // 这里的回调本质上也是在子线程，但是内部已经做了线程切换处理，可以直接进行UI操作。
+       mdBannerP10_67View.show(adModel, new MDAdLoadListener() {
+        @Override
+        public void onAdClicked() {
 
-                            }
+        }
 
-                            @Override
-                            public void onAdShow() {
-                                Toast.makeText(BannerActivity.this, "广告展示中", Toast.LENGTH_SHORT).show();
-                                rlContainer.addView(mdBannerP10_67View);
-                                
-                                //该方法用于快速适配，必须要在addView()之后调用。
-                                mdBannerP10_67View.setUpWithDefaultScale(true, 0, 0, 0);
-                            }
+        @Override
+        public void onAdShow() {
+            Toast.makeText(BannerActivity.this, "广告展示中", Toast.LENGTH_SHORT).show();
+            rlContainer.addView(mdBannerP10_67View);
+            
+            //该方法用于快速适配，必须要在addView()之后调用。
+            mdBannerP10_67View.setUpWithDefaultScale(true, 0, 0, 0);
+        }
 
-                            @Override
-                            public void onRenderFailed() {
+        @Override
+        public void onRenderFailed() {
 
-                            }
+        }
 
-                            @Override
-                            public void onAdClosed() {
+        @Override
+        public void onAdClosed() {
 
-                            }
-                        });
+        }
+       });
+      }
 ```
- 5.setUpWithDefaultScale()方法介绍：
+5. <span id="setUpWithDefaultScale">setUpWithDefaultScale()方法介绍：</span>
+
 ~~~
 /**
      * 广告位快速适配 
@@ -175,27 +174,22 @@ mdBannerP10_67View = new MDBannerP10_67View(BannerActivity.this);
      * @param paddingRight 
      */
     public void setUpWithDefaultScale(boolean isSetUpWithDefaultScale, int width, int paddingLeft, int paddingRight) {
+    ...
+    }
     
 ~~~
-banner左图右文1.56与上述两个banner广告集成步骤基本相同，但是多了几个UI适配的方法，详细集成流程请参考DEMO，此处仅对增加的几个UI适配方法做介绍：
-UI适配示范如下：
-~~~
-       @Override
-    public void onAdShow() {
-        //注意先要调用addView()方法把控件添加到容器中。
-        rlContainer.addView(mdBannerLeftPicP1_56View);
-        mdBannerLeftPicP1_56View.setUpWithDefaultScale(true, 0, 12, 12);
-        //我们为所有左右图文系列的广告view都增加了可以设置文字大小颜色和边距的方法，开发者可以按需自行调用。
-        mdBannerLeftPicP1_56View.setTitleColor("#111111");
-        mdBannerLeftPicP1_56View.setDescColor("#666666");
-        mdBannerLeftPicP1_56View.setTitleSize(16);
-        mdBannerLeftPicP1_56View.setDescSize(13);
-        mdBannerLeftPicP1_56View.setTitlePadding(12,4,0,2);
-        mdBannerLeftPicP1_56View.setDownLoadBtn(11,5,2,5,2);
-    }
+banner左图右文1.56与上述两个banner广告集成步骤基本相同，但是多了几个UI适配的方法，详细集成流程请参考DEMO，此处仅对增加的几个UI适配方法做介绍。
+1. 设置文字大小和颜色。左右图文系列的广告位开放了修改文字大小、颜色以及padding的方法，设置方法如下：
+    ~~~
+     mdBannerLeftPicP1_56View.setTitleColor("#111111");
+     mdBannerLeftPicP1_56View.setDescColor("#666666");
+     mdBannerLeftPicP1_56View.setTitleSize(16);
+     mdBannerLeftPicP1_56View.setDescSize(13);
+     mdBannerLeftPicP1_56View.setTitlePadding(12,4,0,2);
+     mdBannerLeftPicP1_56View.setDownLoadBtn(11,5,2,5,2);
+  ~~~
+2. 设置padding方法介绍：
 
-~~~
-设置文字padding方法如下，设置下载按钮的方法如下。其他左右图文的广告位同理。
 ~~~
     /**
      * padding设置，单位dp
@@ -204,10 +198,12 @@ UI适配示范如下：
      * @param right
      * @param bottom
      */
-    public void setTitlePadding(int left, int top, int right, int bottom) {...}
-
-
-        /**
+    public void setTitlePadding(int left, int top, int right, int bottom) {
+    ...
+    }
+    
+    
+    /**
      * 设置下载按钮的字体和padding。
      * @param size   字体大小，单位sp
      * @param left   单位dp
@@ -215,38 +211,40 @@ UI适配示范如下：
      * @param right
      * @param bottom
      */
-    public void setDownLoadBtn(float size, int left, int top, int right, int bottom) {...}
+    public void setDownLoadBtn(float size, int left, int top, int right, int bottom) {
+    ...
+    }
 
 
 ~~~
 
 ### 信息流广告
-信息流广告用于展示在信息流列表中，sdk中提供了多种信息流广告样式，具体分类如下：
-1.信息流左图右文0.67（广告ID850002，广告位宽高比690：290，对应view为MDInfoFlowLeftPicP0_67View）
-2.信息流左图右文0.78（广告ID850008，广告位宽高比690：290，对应view为MDInfoFlowLeftPicP0_78View）
-3.信息流左图右文1.5（广告ID850010，广告位宽高比640：168，对应view为MDInfoFlowLeftPicP1_5View）
-4.信息流左文右图0.78（广告ID850007，广告位宽高比690：290，对应view为MDInfoFlowRightPicP0_78View）
-5.信息流左文右图1.5（广告ID850011，广告位宽高比640：168，对应view为MDInfoFlowRightPicP1_5View）
-6.信息流上图下文1.78（广告ID850009，广告位宽高比690：440，对应view为MDInfoFlowTopPicP1_78View）
-6.信息流上文下图1.78（广告ID850006，广告位宽高比690：440，对应view为MDInfoFlowBottomPicP1_78View）
+信息流广告用于展示在信息流列表中，sdk中提供了多种信息流广告样式，具体分类如下：  
+1.信息流左图右文0.67（广告ID850002，广告位宽高比690：290，对应view为MDInfoFlowLeftPicP0_67View）  
+2.信息流左图右文0.78（广告ID850008，广告位宽高比690：290，对应view为MDInfoFlowLeftPicP0_78View）  
+3.信息流左图右文1.5（广告ID850010，广告位宽高比640：168，对应view为MDInfoFlowLeftPicP1_5View）  
+4.信息流左文右图0.78（广告ID850007，广告位宽高比690：290，对应view为MDInfoFlowRightPicP0_78View）  
+5.信息流左文右图1.5（广告ID850011，广告位宽高比640：168，对应view为MDInfoFlowRightPicP1_5View）  
+6.信息流上图下文1.78（广告ID850009，广告位宽高比690：440，对应view为MDInfoFlowTopPicP1_78View）  
+6.信息流上文下图1.78（广告ID850006，广告位宽高比690：440，对应view为MDInfoFlowBottomPicP1_78View）  
 
-开发者接入时需要申请相应广告ID，信息流广告详细集成过程请参考DEMO中的InfoFlowActivity,集成步骤如下：
+开发者接入时需要申请相应广告ID，信息流广告详细集成过程请参考DEMO中的InfoFlowActivity集成步骤如下：
 #### 左右图文系列(以信息流左图右文0.67为例)：
-    1.实例化控件
+1. 实例化控件
     ~~~
         //注意此处Context必须传Activity，不能传其他的。
        mdInfoFlowLeftPicP0_67View = new MDInfoFlowLeftPicP0_67View(InfoFlowActivity.this); 
     ~~~
-    2.构建广告信息,传入广告ID。
+2. 构建广告信息,传入广告ID。
 ```
         AdSlot adSlot = new AdSlot.Builder()
                 .setCodeId("820005")
                 .build();
-  ```
-    3.使用MDAdLoadHelper.getInstance().requestAd()方法请求广告
-    4. 在onSuccess()方法中调用show()方法显示广告并在onAdShow()回调中进行广告位UI适配。
 ```
-         @Override
+3. 使用MDAdLoadHelper.getInstance().requestAd()方法请求广告
+4. 在onSuccess()方法中调用show()方法显示广告并在onAdShow()回调中进行广告位UI适配。
+```
+        @Override
         public void onAdShow() {
         //先调用addView()再进行UI适配。
         rlContainer.addView(mdInfoFlowLeftPicP0_67View);
@@ -262,13 +260,17 @@ UI适配示范如下：
 
         }
 ``` 
-    5.setUpWithDefaultScale()等UI适配方法请参考banner广告中的介绍
-#### 上下图文系列：
-    上下图文系列基本集成步骤与左右图文系列相同。不过上下图文系列内置了MDAutoFitHeightTextView，文字大小会根据广告位的大小自行适配，开发者只需决定广告位宽度即可。
+5. setUpWithDefaultScale()等UI适配方法介绍：参照[banner广告](#setUpWithDefaultScale)
+
+#### 上下图文系列： 
+
+上下图文系列基本集成步骤与左右图文系列相同。不过上下图文系列内置了MDAutoFitHeightTextView，文字大小会根据广告位的大小自行适配，开发者只需决定广告位宽度即可。
 
 ### 开屏广告
-开屏广告又通常用于 App 启动或者从一个页面过渡到另一个页面的场景中。sdk中提供了全屏（广告ID810001）和上图下logo（广告ID810002）两种样式。开发者在接入时需要申请相应广告ID。
-集成开屏广告单图0.56详细流程请参考DEMO中的FullScreenSplashActivity,步骤如下:
+开屏广告通常用于App启动或者从一个页面过渡到另一个页面的场景中。sdk中提供了全屏（广告ID 810001）和上图下logo（广告ID 810002）两种样式。开发者在接入时需要申请相应广告ID。  
+
+#### 集成开屏广告单图0.56  
+详细流程请参考DEMO中的FullScreenSplashActivity,步骤如下:
 1. 实例化控件MDSplashFullScreenP0_56View
 ~~~
     //注意此处Context必须传Activity，不能传其他的。
@@ -283,11 +285,14 @@ UI适配示范如下：
     AdSlot adSlot = new AdSlot.Builder()
                 .setCodeId("810001")
                 .build();
-    MDAdLoadHelper.getInstance().requestAd(adSlot, new MDAdLoadHelper.AdRequestListener() {});
+    MDAdLoadHelper.getInstance().requestAd(adSlot, new MDAdLoadHelper.AdRequestListener() {
+    ...
+    });
 ~~~
-4. 在onSuccess()方法中调用show()方法展示广告。各个回调处需要处理自动跳转相关逻辑，代码如下：
+4. 在onSuccess()方法中调用show()方法展示广告。各个回调处需要处理自动跳转相关逻辑，代码如下：  
+
 ~~~
-   mdSplashFullScreenP0_56View.show(FullScreenSplashActivity.this, adModel, new MDAdLoadListener() {
+    mdSplashFullScreenP0_56View.show(FullScreenSplashActivity.this, adModel, new MDAdLoadListener() {
                     @Override
                     public void onAdClicked() {
                         myHandler.removeCallbacksAndMessages(null);
@@ -325,8 +330,9 @@ UI适配示范如下：
         });
     }
 ~~~
-集成开屏广告上图下logo0.7过程与之类似，详细流程请参考DEMO中的TopPicP_07SplashActivity,这里对注意事项进行重点描述:
-1.开屏广告上图下logo的底部logo部分需要开发者自定义，logo部分高度为屏幕高度的1/3，需要在onCreate()中进行设置。
+#### 集成开屏广告上图下logo0.7
+基本流程与集成开屏广告单图类似，请参考DEMO中的TopPicP_07SplashActivity，需要注意的是:  
+1. 开屏广告上图下logo的底部logo部分需要开发者自定义，logo部分高度为屏幕高度的1/3，需要在onCreate()中进行设置。
 ~~~
      // 底部高度为屏幕宽度的1/3
         float screenWidth = MDDeviceHelper.getScreenWidth();
@@ -335,60 +341,66 @@ UI适配示范如下：
         layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
         rlLogo.setLayoutParams(layoutParams);
 ~~~
-2.logo之上就是我们的广告位。由于logo和广告位的高度都是动态计算的，所以MDSplashTopPicP0_7View的父容器需要预留足够的高度。建议开发者按照DEMO中的xml布局即可。
-3.成功请求到广告之后，在onAdShow()回调中调用setUpWithDefaultScale()方法来设置我们的广告位的高度。
+2. logo的上面部分就是我们的广告位，由于logo和广告位的高度都是动态计算的，所以MDSplashTopPicP0_7View的父容器需要预留足够的高度。建议开发者参照DEMO中的xml布局，设置成match_parent即可。
+3. 成功请求到广告之后，在onAdShow()回调中调用setUpWithDefaultScale()方法来设置我们的广告位的高度。  
+
 ~~~
        @Override
-                    public void onAdShow() {
-                        Toast.makeText(TopPicP_07SplashActivity.this, "广告展示中", Toast.LENGTH_SHORT).show();
-                        //请求到广告后外部自动跳转逻辑取消
-                        myHandler.removeMessages(1);
-                        for (int i = 5; i > 0; i--) {
-                            myHandler.sendEmptyMessageDelayed(0, i * 1000);
-                        }
-                        rlContainer.addView(mdSplashTopPicP0_7View);
-                        //此处参数传-1，同样该方法需要在addView()之后调用。
-                        mdSplashTopPicP0_7View.setUpWithDefaultScale(-1);
-                    }
+       public void onAdShow() {
+           Toast.makeText(TopPicP_07SplashActivity.this, "广告展示中", Toast.LENGTH_SHORT).show();
+           //请求到广告后外部自动跳转逻辑取消
+           myHandler.removeMessages(1);
+           for (int i = 5; i > 0; i--) {
+               myHandler.sendEmptyMessageDelayed(0, i * 1000);
+           }
+           rlContainer.addView(mdSplashTopPicP0_7View);
+           //此处参数传-1，同样该方法需要在addView()之后调用。
+           mdSplashTopPicP0_7View.setUpWithDefaultScale(-1);
+       }
 
 ~~~
     
 
 
 ### 浮标广告
-浮标广告通常展示在页面的边角位置，是五种广告中展示面积最小的一种。你可以使用MDBuoyP1View控件来实现浮标广告的展示。SDK中提供浮标广告尺寸宽高比为 110 : 110。 在使用该广告之前, 你需要申请浮标广告的广告 ID. 浮标广告步骤如下:
-1. 实例化控件MDBuoyView。
+浮标广告通常展示在页面的边角位置，是五种广告中展示面积最小的一种。你可以使用MDBuoyP1View控件来实现浮标广告的展示。SDK中提供浮标广告尺寸宽高比为 110 : 110。 在使用该广告之前, 你需要申请浮标广告的广告ID（860001）。 浮标广告集成步骤如下:
+1. 实例化控件MDBuoyP1View。
     ~~~
     mBuoyView = findViewById(R.id.ry_buoy_view);
     ~~~
 2. 构建广告信息并请求广告。
+```
+        AdSlot adSlot = new AdSlot.Builder()
+                .setCodeId("860001")
+                .build();
+```
 3. 在onSuccess()方法中调用show()方法展示广告。
     ~~~
-            mBuoyView.setCancelable(true);
-                mBuoyView.show(BuoyAdActivity.this, MDAdModel, new MDAdLoadListener() {
-                    @Override
-                    public void onAdClicked() {
-                        Toast.makeText(BuoyAdActivity.this, "广告被点击", Toast.LENGTH_SHORT).show();
-                    }
+           mBuoyView.setCancelable(true);
+           mBuoyView.show(MDAdModel, new MDAdLoadListener() {
+               @Override
+               public void onAdClicked() {
+                   Toast.makeText(BuoyAdActivity.this, "广告被点击", Toast.LENGTH_SHORT).show();
+               }
 
-                    @Override
-                    public void onAdShow() {
-                        MDLog.e(System.currentTimeMillis()+"onAdShow");
-                        Toast.makeText(BuoyAdActivity.this, "广告展示", Toast.LENGTH_SHORT).show();
-                        //设置cancel按钮比例
-                        mBuoyView.setIvCancelWeight(0.2);
-                    }
+               @Override
+               public void onAdShow() {
+                   MDLog.e(System.currentTimeMillis()+"onAdShow");
+                   Toast.makeText(BuoyAdActivity.this, "广告展示", Toast.LENGTH_SHORT).show();
+                   //设置cancel按钮比例，默认占比0.2
+                   mBuoyView.setIvCancelWeight(0.2);
+               }
 
-                    @Override
-                    public void onRenderFailed() {
-                        Toast.makeText(BuoyAdActivity.this, "广告加载失败", Toast.LENGTH_SHORT).show();
-                    }
+               @Override
+               public void onRenderFailed() {
+                   Toast.makeText(BuoyAdActivity.this, "广告加载失败", Toast.LENGTH_SHORT).show();
+               }
 
-                    @Override
-                    public void onAdClosed() {
-                        Toast.makeText(BuoyAdActivity.this, "广告被关闭", Toast.LENGTH_SHORT).show();
-                    }
-                });
+               @Override
+               public void onAdClosed() {
+                   Toast.makeText(BuoyAdActivity.this, "广告被关闭", Toast.LENGTH_SHORT).show();
+               }
+               });
     ~~~
 
 ### 插屏广告
