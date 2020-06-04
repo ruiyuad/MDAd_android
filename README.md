@@ -16,7 +16,7 @@ repositories {
         dirs 'libs'
     }
 }
- dependencies {
+dependencies {
         implementation fileTree(dir: 'libs', include: ['*.jar'])
         implementation files( 'libs\\MDAdsdk.aar')
     }
@@ -161,9 +161,9 @@ MDAdLoadHelper.getInstance().requestAd(adSlot, new MDAdLoadHelper.AdRequestListe
        });
       }
 ```
-5. <span id="setUpWithDefaultScale">setUpWithDefaultScale()方法介绍：</span>
+5. <span id="setUpWithDefaultScale">setUpWithDefaultScale()方法介绍：</span>    
 
-~~~
+```
 /**
      * 广告位快速适配 
      * 注意此方法目前只支持父布局为LinearLayout、RelativeLayout和FrameLayout
@@ -177,20 +177,20 @@ MDAdLoadHelper.getInstance().requestAd(adSlot, new MDAdLoadHelper.AdRequestListe
     ...
     }
     
-~~~
+```
 banner左图右文1.56与上述两个banner广告集成步骤基本相同，但是多了几个UI适配的方法，详细集成流程请参考DEMO，此处仅对增加的几个UI适配方法做介绍。
 1. 设置文字大小和颜色。左右图文系列的广告位开放了修改文字大小、颜色以及padding的方法，设置方法如下：
-    ~~~
+~~~
      mdBannerLeftPicP1_56View.setTitleColor("#111111");
      mdBannerLeftPicP1_56View.setDescColor("#666666");
      mdBannerLeftPicP1_56View.setTitleSize(16);
      mdBannerLeftPicP1_56View.setDescSize(13);
      mdBannerLeftPicP1_56View.setTitlePadding(12,4,0,2);
      mdBannerLeftPicP1_56View.setDownLoadBtn(11,5,2,5,2);
-  ~~~
+~~~
 2. 设置padding方法介绍：
 
-~~~
+```
     /**
      * padding设置，单位dp
      * @param left
@@ -214,9 +214,7 @@ banner左图右文1.56与上述两个banner广告集成步骤基本相同，但�
     public void setDownLoadBtn(float size, int left, int top, int right, int bottom) {
     ...
     }
-
-
-~~~
+```  
 
 ### 信息流广告
 信息流广告用于展示在信息流列表中，sdk中提供了多种信息流广告样式，具体分类如下：  
@@ -289,10 +287,10 @@ banner左图右文1.56与上述两个banner广告集成步骤基本相同，但�
     ...
     });
 ~~~
-4. 在onSuccess()方法中调用show()方法展示广告。各个回调处需要处理自动跳转相关逻辑，代码如下：  
+4. 在onSuccess()方法中调用show()方法展示广告。各个回调处需要处理自动跳转相关逻辑，代码如下：
 
-~~~
-    mdSplashFullScreenP0_56View.show(FullScreenSplashActivity.this, adModel, new MDAdLoadListener() {
+```
+mdSplashFullScreenP0_56View.show(FullScreenSplashActivity.this, adModel, new MDAdLoadListener() {
                     @Override
                     public void onAdClicked() {
                         myHandler.removeCallbacksAndMessages(null);
@@ -329,7 +327,7 @@ banner左图右文1.56与上述两个banner广告集成步骤基本相同，但�
             }
         });
     }
-~~~
+```
 #### 集成开屏广告上图下logo0.7
 基本流程与集成开屏广告单图类似，请参考DEMO中的TopPicP_07SplashActivity，需要注意的是:  
 1. 开屏广告上图下logo的底部logo部分需要开发者自定义，logo部分高度为屏幕高度的1/3，需要在onCreate()中进行设置。
@@ -454,6 +452,8 @@ A：跟AndroidStudio编译器有关，尝试clean整个项目，然后gradle中�
 0.1.1: 优化广告展示样式。
 
 0.1.2：自定义view构造方法优化
+
+1.1.0: 增加多个广告位，优化广告请求逻辑，优化信息流等广告位UI适配逻辑。
 
 
 
