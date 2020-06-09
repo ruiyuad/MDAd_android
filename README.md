@@ -94,12 +94,12 @@ file_paths代码如下：
 
 ### 横幅广告
 横幅广告又称为Banner，通常展示在App页面的顶部或者底部。目前支持的Banner广告有三种，分别是  
-1.banner单图10.67（广告ID 820001，广告位宽高比640：60）  
-2.banner左图右文1.56（广告ID 820004，广告位宽高比690：100）   
-3.banner单图4.26（广告位ID 820005，广告位宽高比640：150）   
+1.banner-单图10.67（广告ID 820001，广告位宽高比640：60）  
+2.banner-左图右文1.56（广告ID 820004，广告位宽高比690：100）   
+3.banner-单图4.26（广告位ID 820005，广告位宽高比640：150）   
 开发者接入时需要申请相应广告ID，这三种banner广告详细集成过程请参考DEMO中的BannerActivity。 
 
-banner单图10.67和banner单图4.26集成过程类似，本SDK提供了相应的控件（MDBannerP10_67View和MDBannerP4_26View）来帮助广告展示。下边以banner单图10.67为例简单介绍集成步骤： 
+banner-单图10.67和banner-单图4.26集成过程类似，本SDK提供了相应的控件（MDBannerP10_67View和MDBannerP4_26View）来帮助广告展示。下边以banner单图10.67为例简单介绍集成步骤： 
 
 1. 实例化控件
 ~~~
@@ -178,7 +178,7 @@ MDAdLoadHelper.getInstance().requestAd(adSlot, new MDAdLoadHelper.AdRequestListe
     }
     
 ```
-banner左图右文1.56与上述两个banner广告集成步骤基本相同，但是多了几个UI适配的方法，详细集成流程请参考DEMO，此处仅对增加的几个UI适配方法做介绍。
+banner-左图右文1.56与上述两个banner广告集成步骤基本相同，但是多了几个UI适配的方法，详细集成流程请参考DEMO，此处仅对增加的几个UI适配方法做介绍。
 1. 设置文字大小和颜色。左右图文系列的广告位开放了修改文字大小、颜色以及padding的方法，设置方法如下：
 ~~~
      mdBannerLeftPicP1_56View.setTitleColor("#111111");
@@ -218,16 +218,16 @@ banner左图右文1.56与上述两个banner广告集成步骤基本相同，但�
 
 ### 信息流广告
 信息流广告用于展示在信息流列表中，sdk中提供了多种信息流广告样式，具体分类如下：  
-1.信息流左图右文0.67（广告ID850002，广告位宽高比690：290，对应view为MDInfoFlowLeftPicP0_67View）  
-2.信息流左图右文0.78（广告ID850008，广告位宽高比690：290，对应view为MDInfoFlowLeftPicP0_78View）  
-3.信息流左图右文1.5（广告ID850010，广告位宽高比640：168，对应view为MDInfoFlowLeftPicP1_5View）  
-4.信息流左文右图0.78（广告ID850007，广告位宽高比690：290，对应view为MDInfoFlowRightPicP0_78View）  
-5.信息流左文右图1.5（广告ID850011，广告位宽高比640：168，对应view为MDInfoFlowRightPicP1_5View）  
-6.信息流上图下文1.78（广告ID850009，广告位宽高比690：440，对应view为MDInfoFlowTopPicP1_78View）  
-6.信息流上文下图1.78（广告ID850006，广告位宽高比690：440，对应view为MDInfoFlowBottomPicP1_78View）  
+1.信息流-左图右文0.67（广告ID850002，广告位宽高比690：290，对应view为MDInfoFlowLeftPicP0_67View）  
+2.信息流-左图右文0.78（广告ID850008，广告位宽高比690：290，对应view为MDInfoFlowLeftPicP0_78View）  
+3.信息流-左图右文1.5（广告ID850010，广告位宽高比640：168，对应view为MDInfoFlowLeftPicP1_5View）  
+4.信息流-左文右图0.78（广告ID850007，广告位宽高比690：290，对应view为MDInfoFlowRightPicP0_78View）  
+5.信息流-左文右图1.5（广告ID850011，广告位宽高比640：168，对应view为MDInfoFlowRightPicP1_5View）  
+6.信息流-上图下文1.78（广告ID850009，广告位宽高比690：440，对应view为MDInfoFlowTopPicP1_78View）  
+7.信息流-上文下图1.78（广告ID850006，广告位宽高比690：440，对应view为MDInfoFlowBottomPicP1_78View）  
 
 开发者接入时需要申请相应广告ID，信息流广告详细集成过程请参考DEMO中的InfoFlowActivity集成步骤如下：
-#### 左右图文系列(以信息流左图右文0.67为例)：
+#### 左右图文系列(以信息流-左图右文0.67为例)：
 1. 实例化控件
     ~~~
         //注意此处Context必须传Activity，不能传其他的。
@@ -267,7 +267,7 @@ banner左图右文1.56与上述两个banner广告集成步骤基本相同，但�
 ### 开屏广告
 开屏广告通常用于App启动或者从一个页面过渡到另一个页面的场景中。sdk中提供了全屏（广告ID 810001）和上图下logo（广告ID 810002）两种样式。开发者在接入时需要申请相应广告ID。  
 
-#### 集成开屏广告单图0.56  
+#### 集成开屏-单图0.56  
 详细流程请参考DEMO中的FullScreenSplashActivity,步骤如下:
 1. 实例化控件MDSplashFullScreenP0_56View
 ~~~
@@ -328,8 +328,8 @@ mdSplashFullScreenP0_56View.show(FullScreenSplashActivity.this, adModel, new MDA
         });
     }
 ```
-#### 集成开屏广告上图下logo0.7
-基本流程与集成开屏广告单图类似，请参考DEMO中的TopPicP_07SplashActivity，需要注意的是:  
+#### 集成开屏-上图下logo0.7
+基本流程与集成开屏-单图0.56类似，请参考DEMO中的TopPicP_07SplashActivity，需要注意的是:  
 1. 开屏广告上图下logo的底部logo部分需要开发者自定义，logo部分高度为屏幕高度的1/3，需要在onCreate()中进行设置。
 ~~~
      // 底部高度为屏幕宽度的1/3
