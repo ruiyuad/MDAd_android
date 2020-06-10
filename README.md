@@ -64,7 +64,7 @@ dependencies {
     
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
 ```
-3. 在manifest文件里配置provider,并在res目录下新建xml目录，然后建立file_paths文件。
+3. 在manifest文件里配置provider,并在res目录下新建xml目录，然后建立file_paths.xml文件。
 manifest文件里代码如下：
 
 ```
@@ -78,7 +78,7 @@ manifest文件里代码如下：
                 android:resource="@xml/file_paths" />
         </provider>
 ```
-file_paths代码如下：
+file_paths.xml代码如下：
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <paths>
