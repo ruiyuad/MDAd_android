@@ -179,7 +179,7 @@ MDAdLoadHelper.getInstance().requestAd(adSlot, new MDAdLoadHelper.AdRequestListe
     
 ```
 banner-左图右文1.56与上述两个banner广告集成步骤基本相同，但是多了几个UI适配的方法，详细集成流程请参考DEMO，此处仅对增加的几个UI适配方法做介绍。
-1. 设置文字大小和颜色。左右图文系列的广告位开放了修改文字大小、颜色以及padding的方法，设置方法如下：
+1. 设置文字大小和颜色。我们对图文系列的广告位（比如信息流）开放了修改文字大小、颜色以及padding的方法，设置方法如下：
 ~~~
      mdBannerLeftPicP1_56View.setTitleColor("#111111");
      mdBannerLeftPicP1_56View.setDescColor("#666666");
@@ -226,8 +226,7 @@ banner-左图右文1.56与上述两个banner广告集成步骤基本相同，但
 6.信息流-上图下文1.78（广告ID850009，广告位宽高比690：440，对应view为MDInfoFlowTopPicP1_78View）  
 7.信息流-上文下图1.78（广告ID850006，广告位宽高比690：440，对应view为MDInfoFlowBottomPicP1_78View）  
 
-开发者接入时需要申请相应广告ID，信息流广告详细集成过程请参考DEMO中的InfoFlowActivity集成步骤如下：
-#### 左右图文系列(以信息流-左图右文0.67为例)：
+开发者接入时需要申请相应广告ID，信息流广告详细集成过程请参考DEMO中的InfoFlowActivity集成步骤如下(以信息流-左图右文0.67为例)：
 1. 实例化控件
     ~~~
         //注意此处Context必须传Activity，不能传其他的。
@@ -260,9 +259,6 @@ banner-左图右文1.56与上述两个banner广告集成步骤基本相同，但
 ``` 
 5. setUpWithDefaultScale()等UI适配方法介绍：参照[banner广告](#setUpWithDefaultScale)
 
-#### 上下图文系列： 
-
-上下图文系列基本集成步骤与左右图文系列相同。不过上下图文系列内置了MDAutoFitHeightTextView，文字大小会根据广告位的大小自行适配，开发者只需决定广告位宽度即可。
 
 ### 开屏广告
 开屏广告通常用于App启动或者从一个页面过渡到另一个页面的场景中。sdk中提供了全屏（广告ID 810001）和上图下logo（广告ID 810002）两种样式。开发者在接入时需要申请相应广告ID。  
