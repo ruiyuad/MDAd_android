@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="广告DEMO示例"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#dddddd"
+                android:padding="8dp"
+                android:text="开屏广告"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tv_splash_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:text="开屏-单图0.56（810001）"
+                android:textSize="17sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/ee"
+            />
+            <TextView
+                android:id="@+id/tv_splash_top_pic_p0_7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:text="开屏-上图下logo0.7（810002）"
+                android:textSize="17sp" />
+
+
+
+            <TextView
+                android:id="@+id/tv_splash_interaction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:text="开屏广告（互动）（810001）"
+                android:textSize="17sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#dddddd"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:text="banner广告"
+                android:textSize="17sp" />
+
+
+            <TextView
+                android:id="@+id/tv_banner_p10_67"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:text="Banner-单图10.67（820001）"
+                android:textSize="17sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/ee" />
+
+            <TextView
+                android:id="@+id/tv_banner_left_pic_p1_56"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:text="Banner-左图右文1.56（820004）"
+                android:textSize="17sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/ee" />
+
+            <TextView
+                android:id="@+id/tv_banner_p4_26"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:text="Banner-单图4.26（820005）"
+                android:textSize="17sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#dddddd"
+                android:padding="8dp"
+                android:text="插屏广告"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tv_interstitial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:text="弹窗插屏（840001）"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tv_interstitial_interaction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:text="弹窗插屏(互动)（840001）"
+                android:textSize="17sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#dddddd"
+                android:padding="8dp"
+                android:text="信息流广告"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tv_info_flow_only_pic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:text="信息流单图（850001）"
+                android:textSize="17sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_info_flow_left_pic_p0_67"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:text="信息流-左图右文0.67（850002）"
+                android:textSize="17sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/ee" />
+
+            <TextView
+                android:id="@+id/tv_info_flow_bottom_pic_p1_78"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:text="信息流-上文下图1.78（850006）"
+                android:textSize="17sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/ee" />
+
+            <TextView
+                android:id="@+id/tv_info_flow_right_pic_p0_78"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:text="信息流-左文右图0.78（850007）"
+                android:textSize="17sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/ee" />
+
+            <TextView
+                android:id="@+id/tv_info_flow_left_pic_0_78"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:text="信息流-左图右文0.78（850008）"
+                android:textSize="17sp" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/ee" />
+
+            <TextView
+                android:id="@+id/tv_info_flow_top_pic_1_78"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:text="信息流-上图下文1.78（850009）"
+                android:textSize="17sp" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/ee" />
+
+            <TextView
+                android:id="@+id/tv_info_flow_left_pic_p1_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:text="信息流-左图右文1.5（850010）"
+                android:textSize="17sp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/ee" />
+
+            <TextView
+                android:id="@+id/tv_info_flow_right_pic_p1_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:text="信息流-左文右图1.5（850011）"
+                android:textSize="17sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/ee" />
+
+            <TextView
+                android:id="@+id/tv_info_flow_right_pic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:text="信息流-左文右图（850004）"
+                android:textSize="17sp"
+                android:visibility="gone" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/ee"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_info_flow_top_pic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:text="信息流-上图下文（850006）"
+                android:textSize="17sp"
+                android:visibility="gone" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/ee" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#dddddd"
+                android:padding="8dp"
+                android:text="浮标广告"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tv_buoy_ad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:text="浮标广告（860001）"
+                android:layout_marginBottom="100dp"
+
+                android:textSize="17sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/ee" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#dddddd"
+                android:padding="8dp"
+                android:text="激励广告"
+                android:textSize="17sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_reward_ad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:text="激励广告（870001）"
+                android:textSize="17sp"
+                android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

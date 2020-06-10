@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <widget.RYTitleView
+        android:id="@+id/ry_title_view"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:rytv_title_text="信息流广告展示" />
+
+    <RelativeLayout
+        android:layout_marginTop="12dp"
+        android:id="@+id/rl_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <com.zues.sdk.yq.mdview.MDBuoyP1View
+        android:layout_width="100dp"
+        android:background="@color/red"
+        android:layout_height="100dp"/>
+
+</LinearLayout>
