@@ -326,7 +326,7 @@ mdSplashFullScreenP0_56View.show(FullScreenSplashActivity.this, adModel, new MDA
 ```
 #### 集成开屏-上图下logo0.7
 基本流程与集成开屏-单图0.56类似，请参考DEMO中的TopPicP_07SplashActivity，需要注意的是:  
-1. 开屏广告上图下logo的底部logo部分需要开发者自定义，logo部分高度为屏幕高度的1/3，需要在onCreate()中进行设置。
+1. 开屏广告上图下logo的底部logo部分需要开发者自定义，logo部分高度为屏幕宽度的1/3，需要在onCreate()中进行设置。
 ~~~
      // 底部高度为屏幕宽度的1/3
         float screenWidth = MDDeviceHelper.getScreenWidth();
