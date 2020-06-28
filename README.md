@@ -96,7 +96,8 @@ file_paths.xml代码如下：
         path="." />
 </paths>
 ```
-fileProvider冲突解决：如果本fileProvider与项目中其他FileProvider产生冲突，可以参考以下步骤解决冲突：
+FileProvider冲突解决：如果本FileProvider与项目中其他FileProvider产生冲突，可以参考以下步骤解决冲突： 
+
 1 .新建FileProvider的子类
 ~~~
             public class MDFileProvider extends FileProvider {
