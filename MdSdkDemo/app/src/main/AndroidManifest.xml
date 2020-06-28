@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.zues.ruiyu">
 
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
@@ -50,15 +51,18 @@
         </activity>
         <activity android:name=".InterstitialActivity" />
         <activity android:name=".TopPicP_07SplashActivity" />
-
         <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="${applicationId}.fileprovider"
+            android:name="com.zues.sdk.self.MDFileProvider"
+            android:authorities="${applicationId}.MDFileProvider"
             android:exported="false"
-            android:grantUriPermissions="true">
+            android:grantUriPermissions="true"
+            tools:replace="name,authorities,exported,grantUriPermissions"
+            >
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
+                android:resource="@xml/md_file_paths"
+                tools:replace="name,resource"
+                />
         </provider>
 
     </application>

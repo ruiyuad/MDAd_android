@@ -64,29 +64,32 @@ dependencies {
     
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
 ```
-3. 在manifest文件里配置provider,并在res目录下新建xml目录，然后建立file_paths.xml文件。
+3. 在manifest文件里配置provider,并在res目录下新建xml目录，然后建立md_file_paths.xml文件。
 manifest文件里代码如下：
 
 ```
   <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="${applicationId}.fileprovider"
+            android:name="com.zues.sdk.self.MDFileProvider"
+            android:authorities="${applicationId}.MDFileProvider"
             android:exported="false"
-            android:grantUriPermissions="true">
+            android:grantUriPermissions="true"
+            tools:replace="name,authorities,exported,grantUriPermissions"
+            >
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
+                android:resource="@xml/md_file_paths" 
+                tools:replace="name,resource"
+                />
         </provider>
 ```
-file_paths.xml代码如下：
+md_file_paths.xml代码如下：
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <paths>
-    <external-path name="tt_external_root" path="." />
-    <external-path name="tt_external_download" path="Download" />
-    <external-files-path name="tt_external_files_download" path="Download" />
-    <files-path name="tt_internal_file_download" path="Download" />
-    <cache-path name="tt_internal_cache_download" path="Download" />
+    <external-path name="md_external_root" path="." />
+    <external-files-path name="md_external_files_download" path="." />
+    <files-path name="md_files-path" path="." />
+    <cache-path name="md_cache-path" path="." />
 </paths>
 ```
 ## 广告样式
