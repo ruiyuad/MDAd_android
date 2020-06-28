@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <paths xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <external-path
-        name="md_external_root"
-        path="." />
+
     <external-files-path
         name="md_external_files_download"
+        path="." />
+    <external-path
+        name="md_external_root"
         path="." />
     <files-path
         name="md_files-path"
@@ -13,5 +14,4 @@
     <cache-path
         name="md_cache-path"
         path="." />
-
 </paths>

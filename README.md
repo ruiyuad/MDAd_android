@@ -64,33 +64,59 @@ dependencies {
     
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
 ```
-3. 在manifest文件里配置provider,并在res目录下新建xml目录，然后建立md_file_paths.xml文件。
+3. 在manifest文件里配置provider,并在res目录下新建xml目录，然后建立file_paths.xml文件。
 manifest文件里代码如下：
 
 ```
   <provider
-            android:name="com.zues.sdk.self.MDFileProvider"
-            android:authorities="${applicationId}.MDFileProvider"
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+```
+file_paths.xml代码如下：
+```
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+     <external-files-path
+        name="md_external_files_download"
+        path="." />
+    <external-path
+        name="md_external_root"
+        path="." />
+    <files-path
+        name="md_files-path"
+        path="." />
+    <cache-path
+        name="md_cache-path"
+        path="." />
+</paths>
+```
+fileProvider冲突解决：如果本fileProvider与项目中其他FileProvider产生冲突，可以参考以下步骤解决冲突：
+1 .新建FileProvider的子类
+~~~
+            public class MDFileProvider extends FileProvider {
+                }
+~~~
+2 .修改provider配置
+```
+  <provider
+            android:name=".MDFileProvider"
+            android:authorities="${applicationId}.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true"
             tools:replace="name,authorities,exported,grantUriPermissions"
             >
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/md_file_paths" 
+                android:resource="@xml/file_paths" 
                 tools:replace="name,resource"
                 />
-        </provider>
-```
-md_file_paths.xml代码如下：
-```
-<?xml version="1.0" encoding="utf-8"?>
-<paths>
-    <external-path name="md_external_root" path="." />
-    <external-files-path name="md_external_files_download" path="." />
-    <files-path name="md_files-path" path="." />
-    <cache-path name="md_cache-path" path="." />
-</paths>
+  </provider>
 ```
 ## 广告样式
 目前支持5种广告样式，分别是**横幅广告**、**信息流广告**、**开屏广告**、**浮标广告**以及**插屏广告**。各种广告具体效果和用法如下：
