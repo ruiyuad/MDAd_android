@@ -265,7 +265,7 @@ public class InfoFlowActivity extends AppCompatActivity {
                                 mTitleView.setTitleText("信息流-左图右文1.5展示");
                                 mdLeftPicWithTextViewP1_5.setCancelable(true);
                                 rlContainer.addView(mdLeftPicWithTextViewP1_5);
-                                mdLeftPicWithTextViewP1_5.setUpWithDefaultScale(true, 1080, 12, 12);
+                                mdLeftPicWithTextViewP1_5.setUpWithDefaultScale(true, 0, 12, 12);
                                 mdLeftPicWithTextViewP1_5.setTitleColor("#111111");
                                 mdLeftPicWithTextViewP1_5.setTitleSize(16);
                                 mdLeftPicWithTextViewP1_5.setTitlePadding(12,10,0,6);
@@ -301,7 +301,7 @@ public class InfoFlowActivity extends AppCompatActivity {
                                 mTitleView.setTitleText("信息流-左文右图1.5展示");
                                 mdInfoFlowRightPicP1_5View.setCancelable(true);
                                 rlContainer.addView(mdInfoFlowRightPicP1_5View);
-                                mdInfoFlowRightPicP1_5View.setUpWithDefaultScale(true, 1080, 12, 12);
+                                mdInfoFlowRightPicP1_5View.setUpWithDefaultScale(true, 0, 12, 12);
                                 mdInfoFlowRightPicP1_5View.setTitleColor("#111111");
                                 mdInfoFlowRightPicP1_5View.setTitleSize(16);
                                 mdInfoFlowRightPicP1_5View.setTitlePadding(6,10,0,6);
